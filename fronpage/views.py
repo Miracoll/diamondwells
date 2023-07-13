@@ -48,7 +48,7 @@ def whatIsLeverage(request):
 
 def copyExpertTrades(request):
     context = {}
-    return render(request, 'fronpage/copyexperttraders.html', context)
+    return render(request, 'fronpage/copytrading.html', context)
 
 def optionsTrading(request):
     context = {}
@@ -64,7 +64,7 @@ def stockTrading(request):
 
 def forexTrading(request):
     context = {}
-    return render(request, 'fronpage/forextrading.html', context)
+    return render(request, 'fronpage/forextradding.html', context)
 
 def generalRisk(request):
     context = {}
@@ -85,3 +85,11 @@ def cookie(request):
 def about(request):
     context = {}
     return render(request, 'fronpage/aboutus.html', context)
+
+def cryptoMining(request):
+    context = {}
+    return render(request, 'fronpage/cryptominning.html', context)
+
+def faq(request):
+    context = {}
+    return render(request, 'fronpage/faq.html', context)

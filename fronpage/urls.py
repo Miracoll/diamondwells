@@ -14,9 +14,11 @@ urlpatterns = [
     path('crypto-trading/', views.cryptoTrading, name='front-crypto'),
     path('stock-trading/', views.stockTrading, name='front-stock'),
     path('forex-trading/', views.forexTrading, name='front-forex'),
+    path('crypto-mining/', views.cryptoMining, name='front-crypto-mining'),
     path('general-risk/', views.generalRisk, name='front-risk'),
     path('term-of-service/', views.termOfService, name='front-term'),
     path('privacy-policy/', views.privacyPolicy, name='front-policy'),
     path('cookie/', views.cookie, name='front-cookie'),
     path('about-us/', views.about, name='front-about'),
+    path('faq/', views.faq, name='front-faq'),
 ]

@@ -1,310 +1,334 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="--hover: #dce2e4; --nav-primary-font-colour: black; --nav-secondary-font-colour: #9cb0c2; --background-colour: #f5f7fe; --background-font-colour: #4a4a4a; --background-heading-colour: #000000; --primary-background: #ffffff; --primary-font-colour: #02194A; --primary-border-colour: #dbdcdf; --primary-link-colour: #000000; --secondary-background: #000000; --secondary-font-colour: #a5bdd9; --secondary-heading-colour: #ffffff; --border-colour: #f2f2f2; height: 100%;">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Diamond Wwells Capital: The Online Trading and Mining Platform - Diamond Wwells Capital</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>DiamondWells</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <meta property="”og:title”" content="Diamond Wwells Capital">
+    <meta property="”og:image”" content="”frontpage/assets/images/site/logo.png”">
 
-  <!-- Favicons -->
-  <link href="{% static 'frontpage/assets/img/logo.png' %}" rel="icon">
-  <link href="{% static 'frontpage/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+    <meta content="width=device-width, user-scalable=no" name="viewport">
+    <meta content="Trade Stocks, Forex, and Crypto Currencies, Start making profit today by trading over 150 Stocks, Forex and Crypto Currencies." property="og:description">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'frontpage/assets/css/site/reactapp-modules.css' %}" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+    <link href="{% static 'frontpage/assets/css/libs/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'frontpage/assets/crest-capital' %}.css">
 
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'frontpage/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'frontpage/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'frontpage/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'frontpage/assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
-  <link href="{% static 'frontpage/assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
-  <link href="{% static 'frontpage/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-  <link href="{% static 'frontpage/assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
-  <meta name="referrer" content="no-referrer-when-downgrade">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'frontpage/assets/css/home.css' %}" rel="stylesheet">
-    <link href="{% static 'frontpage/assets/css/pagestyle.css' %}" rel="stylesheet">
-    <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
+ 
+  <link rel="shortcut icon" href="{% static 'frontpage/assets/images/pwa/favicon.ico' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'frontpage/assets/images/pwa/favicon-16x16.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'frontpage/assets/images/pwa/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="48x48" href="{% static 'frontpage/assets/images/pwa/favicon-48x48.png' %}">
+  <link rel="manifest" href="{% static 'frontpage/assets/images/pwa/manifest.json' %}">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#fff">
+  <meta name="application-name" content="Diamond Wwells Capital">
+  <link rel="apple-touch-icon" sizes="57x57" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-57x57.png' %}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-60x60.png' %}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-72x72.png' %}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-76x76.png' %}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-114x114.png' %}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-120x120.png' %}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-144x144.png' %}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-152x152.png' %}">
+  <link rel="apple-touch-icon" sizes="167x167" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-167x167.png' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-180x180.png' %}">
+  <link rel="apple-touch-icon" sizes="1024x1024" href="{% static 'frontpage/assets/images/pwa/apple-touch-icon-1024x1024.png' %}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Diamond Wwells Capital">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-640x1136.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-750x1334.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-828x1792.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1125x2436.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1242x2208.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1242x2688.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1536x2048.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1668x2224.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1668x2388.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2048x2732.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1620x2160.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1136x640.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1334x750.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-1792x828.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2436x1125.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2208x1242.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2688x1242.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2048x1536.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2224x1668.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2388x1668.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2732x2048.png">
+  <link rel="apple-touch-startup-image" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)" href="frontpage/assets/images/pwa/apple-touch-startup-image-2160x1620.png">
+  <link rel="icon" type="image/png" sizes="228x228" href="{% static 'frontpage/assets/images/pwa/coast-228x228.png' %}">
+  <meta name="msapplication-TileColor" content="#fff">
+  <meta name="msapplication-TileImage" content="{% static 'frontpage/assets/images/pwa/mstile-144x144.png' %}">
+  <meta name="msapplication-config" content="{% static 'frontpage/assets/images/pwa/browserconfig.xml' %}">
+  <link rel="yandex-tableau-widget" href="{% static 'frontpage/assets/images/pwa/yandex-browser-manifest.json' %}">
+  <link type="text/css" rel="stylesheet" charset="UTF-8" href="{% static 'frontpage/assets/www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.69JJaQ5G5xA.L.W.O/d=0/rs=AN8SPfpC36MIoWPngdVwZ4RUzeJYZaC7rg/m=el_main_css' %}">
 
 <style type="text/css">
- #main {
-  margin-top: 60px;
-}
+    .dark{
+          background-color: #000;
+          color: #fff;
+        }
 </style>
+
+  <script type="text/javascript" charset="UTF-8" src="https://translate.googleapis.com/_/translate_http/_/js/k=translate_http.tr.en_US.SoIBkgEFL-E.O/d=1/exm=el_conf/ed=1/rs=AN8SPfqyEhDD8B1uaxW5qQJyClI3vzTA9Q/m=el_main"></script>
 </head>
-<body>
 
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
+<body data-new-gr-c-s-check-loaded="14.1113.0" data-gr-ext-installed="" style="position: relative; min-height: 100%; top: 0px;" class="">
 
-    <div class="d-flex align-items-center justify-content-between">
-      
-      <!-- <i class="bi bi-list toggle-sidebar-btn"></i> -->
-      <a data-target="mobile-demo" class="sidenav-trigger show-on-large ">
-        <span class="material-icons toggle-sidebar-btn" style="font-size: 33px;">menu</span>
-      </a>
-      <a href="{% url 'front-home' %}" class="logo d-flex align-items-center">
-        <span class=" d-sm-block" style="font-size: 1.5rem;">DIAMONDWELLS</span>
-      </a>
-    </div><!-- End Logo -->
+<div class="" id="root">
+  <div class="navbar-fixed">
+    <nav class="bg bg-secondary">
+      <div class="container nav-wrapper">
+        <ul id="nav-mobile" class="left">
+          <li><a data-target="mobile-demo" class="sidenav-trigger show-on-large ">
+              <span class="material-icons notranslate toggle-sidebar-btn" style="color: white;">menu</span>
+            </a>
+          </li>
+          <li><a href="/"><h6>DIAMOND WELLS CAPITAL</h6></a></li>
+          <li class="hide-on-med-and-down pc-pl-1"><a href="{% url 'front-about' %}">About Us</a></li>
+          <li class="hide-on-med-and-down pc-pl-1"><a href="{% url 'front-faq' %}">Help Center</a></li>
+          <li class="hide-on-med-and-down pc-pl-1"><a href="markets.html">Assets</a></li>
 
-
-
-    <nav class="header-nav ms-auto hide-on-med-and-down">
-      <ul class="d-flex align-items-center" style="margin-right:30px ;">
-
-        <li>
-          <a href="{% url 'signup' %}" class="btn" style="font-size:12px;"> CREATE ACCOUNT</a>
+        </ul>
+        <ul class="right ">
+            <li>
+          <div class="mode">
+            <span class="change material-icons notranslate undefined">light_mode</span> 
+          </div>
         </li>
 
+          <!-- <li><span class="material-icons notranslate ">dark_mode</span></li> -->
+          <li data-target="tl" class="dropdown-trigger notranslate "><span class="flag-icon flag-icon-us"></span> </li>
+          <div id="tl" class="dropdown-content" tabindex="0" style="">
+            <div class="row" tabindex="0" style="width: 250px;">
+              <ul class="col l6 s6">
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-us flag-icon"></span> EN</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-pt flag-icon"></span> PT</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-nl flag-icon"></span> NL</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-sy flag-icon"></span> AR</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-es flag-icon"></span> ES</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-de flag-icon"></span> DE</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-ir flag-icon"></span> FA</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-fr flag-icon"></span> FR</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-ru flag-icon"></span> RU</a></li>
+              </ul>
+              <ul class="col l6 s6">
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-tr flag-icon"></span> TR</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-in flag-icon"></span> IN</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-it flag-icon"></span> IT</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-se flag-icon"></span> SE</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-id flag-icon"></span> ID</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-vn flag-icon"></span> VN</a></li>
+                <li class="notranslate" style="margin-bottom: 10px;"><a class="notranslate"><span class="flag-icon flag-icon-vi flag-icon"></span> VI</a></li>
+              </ul>
+            </div>
+          </div>
+          <li class="hide-on-med-and-down"><a class="btn btn-secondary" href="{% url 'login' %}">Login</a></li>
+          <li class="hide-on-med-and-down"><a class="btn" href="{% url 'signup' %}">Registration</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
 
-      <li class="dropdown nav-item pe-4 ">
-        <a href="" class="" style="color:#000"><span class="d-none d-md-block ps-4">THEME </span></a> 
-            <ul style="text-align:center;">
 
-              <li><button style="border: none; text-align:center; background: transparent;" onclick="toggleTheme('dark');">DARK</button></li>
-              <li><button style="border: none; text-align:center; background: transparent;" onclick="toggleTheme('light');">LIGHT</button></li>
-            </ul>
-          </li>
+<script type="text/javascript">
+  
+   if (select('.toggle-sidebar-btn')) {
+    on('click', '.toggle-sidebar-btn', function(e) {
+      select('body').classList.toggle('toggle-sidebar')
+    })
+  }
 
 
-      </ul>
-    </nav><!-- End Icons Navigation -->
+</script>
 
-  </header><!-- End Header -->
 
-  <!-- ======= Sidebar ======= -->
-  <aside id="sidebar" class="sidebar">
+
+ <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
       <li>
         <div class="user-view">
           <div class="background">
-            <img src="{% static 'frontpage/assets/img/logo.png' %}" class="responsive-img" style="height: 19vh;">
+            <img src="{% static 'frontpage/assets/images/site/logo.png' %}" class="responsive-img" style="height: 19vh;">
           </div>
         </div>
         </li>
 
         <li class="nav-item">
         <a class="nav-link " href="{% url 'front-home' %}"><span class="material-icons notranslate">home</span>
-          <span>Home</span>
+          <span class="textnav">Home</span>
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link " href="{% url 'login' %}"><span class="material-icons notranslate">person_outline</span>
-          <span>Sign In</span>
+          <span class="textnav">Sign In</span>
         </a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link " href="{% url 'signup' %}"><span class="material-icons notranslate">person_add</span>
-          <span>Sign Up</span>
+          <span class="textnav">Sign Up</span>
+        </a>
+      </li>
+
+
+       <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-copy' %}"><span class="material-icons notranslate">content_copy</span> <span class="textnav">Copy Trading</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-contact' %}"><span class="material-icons notranslate">mail_outline</span>
-          <span>Contact Us</span>
-        </a>
-      </li>
-
-
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-doge' %}"><span class="material-icons notranslate">copyright</span>
-          <span>Dogecoin Mining</span>
+        <a class="nav-link " href="{% url 'front-crypto' %}"><span class="material-icons notranslate" >copyright</span>
+          <span class="textnav">Crypto Trading</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-bitcoin' %}"><span class="material-icons notranslate">copyright</span>
-          <span>Bitcoin Mining</span>
+        <a class="nav-link " href="{% url 'front-crypto-mining' %}"><span class="material-icons notranslate" >dns</span>
+          <span class="textnav">Crypto Minning</span>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-mining' %}"><span class="material-icons notranslate">copyright</span>
-          <span>About Mining</span>
+        <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-forex' %}"><span class="material-icons notranslate">wysiwyg</span>
+          <span class="textnav">Forex Trading</span>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-responsible' %}"><span class="material-icons notranslate">people</span>
-          <span>Responsible Trading</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-leverage' %}"><span class="material-icons notranslate">people</span>
-          <span>What is Leverage</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-copy' %}"><span class="material-icons notranslate">content_copy</span>
-          <span>Copy Expert Traders</span>
-        </a>
-      </li>
 
       <li class="nav-item">
         <a class="nav-link " href="{% url 'front-option' %}"><span class="material-icons notranslate">donut_large</span>
-          <span>Options Trading</span>
+          <span class="textnav">Options Trading</span>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-crypto' %}"><span class="material-icons notranslate">copyright</span>
-          <span>Crypto Trading</span>
-        </a>
-      </li>
-
+     
       <li class="nav-item">
         <a class="nav-link " href="{% url 'front-stock' %}"><span class="material-icons notranslate">insert_chart_outlined</span>
-          <span>Stocks Trading</span>
+          <span class="textnav">Stocks Trading</span>
         </a>
       </li>
-       <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-forex' %}"><span class="material-icons notranslate">wysiwyg</span>
-          <span>Forex Trading</span>
+
+     <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-leverage' %}"><span class="material-icons notranslate">people</span>
+          <span class="textnav">What is Leverage</span>
         </a>
       </li>
+
+        <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-responsible' %}"><span class="material-icons notranslate">people</span>
+          <span class="textnav">Responsible Trading</span>
+        </a>
+      </li>
+
+     
        <li class="nav-item">
         <a class="nav-link " href="{% url 'front-risk' %}"><span class="material-icons notranslate">folder_open</span>
-          <span>General Risk Disclosure</span>
+          <span class="textnav">General Risk Disclosure</span>
         </a>
       </li>
+
+
        <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-term' %}"><span class="material-icons notranslate">folder_open</span>
-          <span>Terms of Service</span>
+        <a class="nav-link " href="{% url 'front-about' %}"><span class="material-icons notranslate">people</span>
+          <span class="textnav">About Us</span>
         </a>
       </li>
+
        <li class="nav-item">
         <a class="nav-link " href="{% url 'front-policy' %}"><span class="material-icons notranslate">lock_open</span>
-          <span>Privacy Policy</span>
+          <span class="textnav">Privacy Policy</span>
         </a>
       </li>
+
        <li class="nav-item">
         <a class="nav-link " href="{% url 'front-cookie' %}"><span class="material-icons notranslate">lock_open</span>
-          <span>Cookie Policy</span>
+          <span class="textnav">Cookie Policy</span>
         </a>
       </li>
+     
+
+       <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-term' %}"><span class="material-icons notranslate">folder_open</span>
+          <span class="textnav">Terms of Service</span>
+        </a>
+      </li>
+
+        <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-bitcoin' %}"><span class="material-icons notranslate">copyright</span>
+          <span class="textnav">Bitcoin Mining</span>
+        </a>
+      </li>
+
+          <li class="nav-item">
+        <a class="nav-link " href="{% url 'front-doge' %}"><span class="material-icons notranslate">copyright</span>
+          <span class="textnav">Dogecoin Mining</span>
+        </a>
+      </li>
+     
+
       <li class="nav-item">
-        <a class="nav-link " href="{% url 'front-about' %}"><span class="material-icons notranslate">people</span>
-          <span>About Us</span>
+        <a class="nav-link " href="{% url 'front-contact' %}"><span class="material-icons notranslate">mail_outline</span>
+          <span class="textnav">Contact Us</span>
         </a>
       </li>
+        
       
     </ul>
 
-  </aside><!-- End Sidebar-->
+  </aside>
+  {% block content %}
+  {% endblock content %}
+
+<article class="bg app-py-3"><div class="row container">
+  <div class="col l3 s12 app-mobile-center">
+    <h6>DIAMOND WELLS CAPITAL</h6>
+    <p><span class="material-icons notranslate">mail</span> info@crestcapital.live</p>
+    <p>© 2014 - 2023 Diamond Wwells Capital</p>
+  </div>
+  <div class="col l9 s12" style="text-align: justify;"><br>
+    <small>The Transactions offered by this Website can be executed only by fully competent adults. Transactions with financial instruments offered on the Website involve substantial risk and trading may be very risky. If you make Transactions with the financial instruments offered on this Website, you might incur substantial losses or even lose everything in your Account. Before you decide to start Transactions with the financial instruments offered on the Website, you must review the Service Agreement and Risk Disclosure Information.</small>
+  </div>
+</div>
+</article>
 
 
-  <main id="main" class="main" style="min-height: 60vh;">
-
-        <!-- ======= Hero Section ======= -->
-  {% block content %}{% endblock content %}
 
 
-  </main><!-- End #main -->
-
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/64269bdf4247f20fefe90384/1gsrd1r8b';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-
- <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
 
 
-<center>
-  <div class="footer-top">
-      <div class="container" style="text-align:center;">
-        <div class="row gy-4">
-          <div class="col-lg-5 col-md-12 footer-info" style="color:#ffffff;">
-            <a href="{% url 'front-home' %}" class="logo d-flex align-items-center" >
-              <img src="{% static 'frontpage/assets/img/logo.png' %}" alt=""> <br>
-            </a>
-            <h5>ChaseTrades</h5>
-            <p><span class="material-icons notranslate">mail</span>info@diamondwells.com</p>
-          </div>
+<script src="{% static 'frontpage/assets/javascript/reactapp-modules.js' %}"></script>
+<script defer="" src="{% static 'frontpage/assets/translate.google.com/translate_a/element.js?cb=googleTranslateElementInit' %}"></script>
 
-          <div class="col-lg-3 col-7 footer-links" >
-            <h6 class="white-text">Markets</h6>
-            <ul>
-              <li>  <a href="{% url 'front-forex' %}">Forex</a></li>
-              <li>  <a href="{% url 'front-crypto' %}">Crypto</a></li>
-              <li>  <a href="{% url 'front-stock' %}">Stocks</a></li>
-              <li>  <a href="{% url 'front-mining' %}">Mining</a></li>
-            </ul>
-          </div>
-          <!-- <div class="col-lg-2 col-6 footer-links">
-           
-          </div> -->
+<!-- <script type="text/javascript" src="{% static 'frontpage/assets/crest-capital.js' %}"></script> -->
 
-          <div class="col-lg-3 col-7 footer-links">
-            <h6 class="white-text">Useful</h6>
-            <ul>
-              <li>  <a href="{% url 'front-about' %}">About Us</a></li>
-              <li>  <a href="{% url 'front-contact' %}">Contact Us</a></li>
-              <li>  <a href="{% url 'login' %}">My Account</a></li>
-              <li>  <a href="{% url 'signup' %}">Create Account</a></li>
-            </ul>
-          </div>
-
-         
-
-        </div>
-      </div>
-    </div>
-</center>
-
-    
-
-  
-  </footer><!-- End Footer -->
-
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'frontpage/assets/vendor/apexcharts/apexcharts.min.js' %}"></script>
-  <script src="{% static 'frontpage/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'frontpage/assets/vendor/quill/quill.min.js' %}"></script>
-  <script src="{% static 'frontpage/assets/vendor/simple-datatables/simple-datatables.js' %}"></script>
-  <script src="{% static 'frontpage/assets/vendor/tinymce/tinymce.min.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static 'frontpage/assets/js/main.js' %}"></script>
-  <script src="{% static 'frontpage/assets/js/theme.js' %}"></script>
-
-<!-- Start of LiveChat (www.livechat.com) code -->
-<!-- <script>
-    window.__lc = window.__lc || {};
-    window.__lc.license = 15290841;
-    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
-</script>
-<noscript><a href="https://www.livechat.com/chat-with/15290841/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript> -->
-<!-- End of LiveChat code -->
+<script type="text/javascript" src="{% static 'frontpage/assets/main.js' %}"></script>
+<script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js' %}"></script>
+<script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js' %}"></script>
+<script>
+        $( ".change" ).on("click", function() {
+            if( $( "body" ).hasClass( "dark" )) {
+                $( "body" ).removeClass( "dark" );
+                $( ".change" ).html( '<span class="change material-icons notranslate undefined">light_mode</span>');
+            } else {
+                $( "body" ).addClass( "dark" );
+                $( ".change" ).html( '<span class="change material-icons notranslate undefined">dark_mode</span>');
+            }
+        });
+    </script>
 
 </body>
-
 </html>
