@@ -45,7 +45,7 @@ def home(request):
         else:
             continue
     openTrades = TakeTrade.objects.filter(user=request.user, open_trade=True)
-    
+
     closeTrades = TakeTrade.objects.filter(user=request.user, open_trade=False)
     context = {
         'trade': copied_trade,
@@ -84,19 +84,19 @@ def tradingRoom(request,ref,currency):
     jpyurl = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=jpy&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1m"
     gbpurl = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=gbp&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1m"
     cnyurl = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=cny&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=1m"
-    
+
     usd_r = requests.get(url = usdurl)
     eur_r = requests.get(url = eururl)
     jpy_r = requests.get(url = jpyurl)
     gbp_r = requests.get(url = gbpurl)
     cny_r = requests.get(url = cnyurl)
-    
+
     usd_data = usd_r.json()
     eur_data = eur_r.json()
     jpy_data = jpy_r.json()
     gbp_data = gbp_r.json()
     cny_data = cny_r.json()
-    
+
     coin = NewCoin.objects.get(code=ref)
     context = {
         'coin':coin,
@@ -193,7 +193,7 @@ def depositeList(request):
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['client','super'])
 def account(request):
-    
+
     context = {}
     return render(request, 'account/account.html',context)
 
@@ -260,7 +260,7 @@ def copyTrade(request, ref):
 @allowed_users(allowed_roles=['client','super'])
 def cancelTrade(request, ref):
     trade = CopiedTrade.objects.filter(ref=ref)
-    
+
     getUser = CopiedTrade.objects.get(ref=ref)
     # getTrade = Trader.objects.get(id=getUser.trade.id)
     # if TakeTrade.objects.filter(trader=getTrade,user=User.objects.get(username=getUser.user.username)).exists():
@@ -389,7 +389,7 @@ def updateAddress(request):
         city = request.POST.get('city')
         state = request.POST.get('state')
         country = request.POST.get('country')
-        
+
         User.objects.filter(username=request.user.username).update(street_address=street, post_code=post, city=city, state=state, country=country)
         messages.success(request,'Profile updated')
         return redirect('profile')
@@ -439,14 +439,14 @@ def bank(request):
         bank = request.POST.get('bank')
         acct = request.POST.get('acct_name')
         amount = request.POST.get('amount')
-        
+
         if withdrawal == request.user.withdrawal_token:
             Withdrawal.objects.create(
                 amount=amount,payment_method=to,user=request.user,mode='bank',bank_name=bank,acct_name = acct
             )
             # Send message to admin
             telegram(f'Hello admin, {request.user.username} just placed a withdrawal via bank')
-            
+
             messages.success(request, 'Done')
             return redirect('bank')
         else:
@@ -463,14 +463,14 @@ def paypal(request):
         withdrawal = request.POST.get('withdrawal')
         email = request.POST.get('email')
         amount = request.POST.get('amount')
-        
+
         if withdrawal == request.user.withdrawal_token:
             Withdrawal.objects.create(
                 amount=amount,payment_method=to,user=request.user,mode='paypal',paypal_email=email
             )
             # Send message to admin
             telegram(f'Hello admin, {request.user.username} just placed a withdrawal via PayPal')
-            
+
             messages.success(request, 'Done')
             return redirect('withdrawals')
         else:
@@ -489,14 +489,14 @@ def cryptoWithdrawal(request):
         paymethod = request.POST.get('paymethod')
         address = request.POST.get('address')
         amount = request.POST.get('amount')
-        
+
         if withdrawal == request.user.withdrawal_token:
             Withdrawal.objects.create(
                 amount=amount,payment_method=paymethod,user=request.user,mode='crypto',wallet_address=address
             )
             # Send message to admin
             telegram(f'Hello admin, {request.user.username} just placed a withdrawal via crypto to {to}')
-            
+
             messages.success(request, 'Done')
             return redirect('withdrawals')
         else:
@@ -513,14 +513,14 @@ def cashApp(request):
         withdrawal = request.POST.get('withdrawal')
         tag = request.POST.get('tag')
         amount = request.POST.get('amount')
-        
+
         if withdrawal == request.user.withdrawal_token:
             Withdrawal.objects.create(
                 amount=amount,payment_method=to,user=request.user,mode='CassApp',cashapp_tag=tag
             )
             # Send message to admin
             telegram(f'Hello admin, {request.user.username} just placed a withdrawal via cashapp')
-            
+
             messages.success(request, 'Done')
             return redirect('withdrawals')
         else:
@@ -565,7 +565,7 @@ def loginuser(request):
         except:
             messages.warning(request,'username does not exist')
             return redirect('login')
-        
+
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
@@ -597,22 +597,22 @@ def signup(request):
         first_name = request.POST.get('first-name')
         last_name = request.POST.get('last-name')
         currency = request.POST.get('currency')
-        
+
         if ' ' in username:
             messages.warning(request, 'Invalid email address')
             return redirect('login')
-        
+
         if User.objects.filter(email=email).exists() or User.objects.filter(username=username).exists():
             messages.warning(request, 'Email or username already used')
             return redirect('login')
-        
+
         if pass1 != pass2:
             messages.warning(request, 'Password did not match')
             return redirect('login')
 
         user = User.objects.create_user(username,email,pass1)
         user.is_staff = True
-        user.is_active = False
+        user.is_active = True
         user.is_superuser = False
         user.last_name = last_name
         user.first_name = first_name
@@ -625,14 +625,17 @@ def signup(request):
             Group.objects.create(name='client')
 
         User.objects.filter(username = username).update(image = 'passport.jpg')
-            
+
         userid = User.objects.get(username=username).id
         getgroup = Group.objects.get(name='client')
         getgroup.user_set.add(userid)
-        
-        # Activate email
-        activateEmail(request, user, email)
+
+        messages.success(request, 'Registration successful')
         return redirect('login')
+
+        # Activate email
+        # activateEmail(request, user, email)
+        # return redirect('login')
     content = {}
     return render(request, 'account/signup.html')
 
@@ -652,7 +655,7 @@ def activate(request, uidb64, token):
     else:
         messages.warning(request, 'Activation link is invalid')
     return redirect('home')
-    
+
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['client','super'])
 def withdrawalCode(request):

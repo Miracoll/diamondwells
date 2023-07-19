@@ -34,38 +34,24 @@
                       <p style="text-align: center;"><span class="app-font-normal">NO AVAILABLE TRADER</span></p>
                       {% else %}
                       {% for trader in traders %}
-                      <div class="col-xxl-12 col-xl-12" >
+                      <div class="col-xxl-12 col-xl-12">
 
                         <div class="card info-card customers-card over" style="margin-bottom: 0px;">
 
                           <div class="card-body ">
 
-                            <div class="app-flex " style="align-items: center;">
-                                <div style="flex: 0.8 1 0%;">
-                                  <center>
-                                    <img src="{{trader.image.url}}" class="circle" style="max-height: 100px;">
-                                  </center>
-                                </div>
+                            <div class="app-flex justify-content-center">
 
-                              <div style="flex: 3 1 0%; text-align: left; padding-left: 30px;">
-                                <p style="font-weight: bold;">{{trader.name}}</p>
-                                
-                                <span>{{trader.win}} Wins</span>
-                                <br>
-                                <span> {{trader.loss}} Losses</span><br>
-                                <span>{{trader.win_rate}}% Win Rate</span><br>
-                                <span>{{trader.profit}}% Profit Share</span><br>
-
-                              </div>
-                              
-                              <div style="flex: 0.7 1 0%; " >
+                              <div class="text-center">
+                                  <img src="{{trader.image.url}}" class="" style="max-height: 150px; width:150px;">
+                                  <p style="font-weight: bold;">{{trader.name}}</p>
+                                  
+                                  <span>{{trader.win_rate}}% Win Rate</span><br>
+                                  <span>{{trader.profit}}% Profit Share</span><br>
+                                  <div style="flex: 0.7 1 0%; " >
                                     <b><a href="{% url 'copy-trade' trader.ref %}" class="green btn white-text" style="padding: 10px;">Copy</a></b>
+                                  </div>
                               </div>
-
-                              <!-- <div style="flex: 0.7 1 0%; " >
-                                <p style="font-size: 12px; font-weight: bold; text-transform: uppercase;">Copying</p><br>
-                                    <b><a class="red btn white-text" style="padding: 10px;">Cancel</a></b>
-                              </div> -->
 
                             </div>
                           </div>
@@ -97,9 +83,9 @@
                               <div style="flex: 3 1 0%; text-align: left; padding-left: 30px;">
                                 <p style="font-weight: bold;">{{copied.trade.name}}</p>
                                 
-                                <span>{{copied.trade.win}} Wins</span>
+                                <!-- <span>{{copied.trade.win}} Wins</span>
                                 <br>
-                                <span> {{copied.trade.loss}} Losses</span><br>
+                                <span> {{copied.trade.loss}} Losses</span><br> -->
                                 <span>{{copied.trade.win_rate}}% Win Rate</span><br>
                                 <span>{{copied.trade.profit}}% Profit Share</span><br>
 
