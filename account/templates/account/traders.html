@@ -58,6 +58,7 @@
                         </div>
 
                       </div>
+                      <hr>
                       {% endfor %}
                       {% endif %}
                     </div>
@@ -71,7 +72,7 @@
 
                         <div class="card info-card customers-card over" style="margin-bottom: 0px;">
 
-                          <div class="card-body ">
+                          <!-- <div class="card-body ">
 
                             <div class="app-flex " style="align-items: center;">
                                 <div style="flex: 0.8 1 0%;">
@@ -83,9 +84,6 @@
                               <div style="flex: 3 1 0%; text-align: left; padding-left: 30px;">
                                 <p style="font-weight: bold;">{{copied.trade.name}}</p>
                                 
-                                <!-- <span>{{copied.trade.win}} Wins</span>
-                                <br>
-                                <span> {{copied.trade.loss}} Losses</span><br> -->
                                 <span>{{copied.trade.win_rate}}% Win Rate</span><br>
                                 <span>{{copied.trade.profit}}% Profit Share</span><br>
 
@@ -102,10 +100,39 @@
                               </div>
                               {% endif %}
                             </div>
+                          </div> -->
+
+                          <div class="card-body ">
+
+                            <div class="app-flex justify-content-center">
+
+                              <div class="text-center">
+                                  <img src="{{copied.trade.image.url}}" class="" style="max-height: 150px; width:150px;">
+                                  <p style="font-weight: bold;">{{copied.trade.name}}</p>
+                                  
+                                  <span>{{copied.trade.win_rate}}% Win Rate</span><br>
+                                  <span>{{copied.trade.profit}}% Profit Share</span><br><br>
+                                  {% if copied.approved %}
+                                  <div style="flex: 0.7 1 0%; " >
+                                    <p style="font-size: 12px; font-weight: bold; text-transform: uppercase;">Copied</p><br>
+                                        <b><a class="green btn white-text" style="padding: 10px;">Success</a></b>
+                                  </div>
+                                  {% else %}
+                                  <div style="flex: 0.7 1 0%; " >
+                                    <p style="font-size: 12px; font-weight: bold; text-transform: uppercase;">Copying</p>
+                                        <b><a href="{% url 'cancel-trade' copied.ref %}" class="red btn white-text" style="padding: 10px;">Cancel</a></b>
+                                  </div>
+                                  {% endif %}
+                              </div>
+
+                            </div>
                           </div>
+
+                          
                         </div>
 
                       </div>
+                      <hr>
                       {% endfor %}
                       {% endif %}
                     </div>

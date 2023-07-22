@@ -5,7 +5,7 @@ from account.models import Currency
 class CreateTraderForm(forms.ModelForm):
     class Meta:
         model = Trader
-        fields = ['name','win','loss','win_rate','profit','image','followers']
+        fields = ['name','win_rate','profit','image','followers']
         
 class CurrencyForm(forms.ModelForm):
     class Meta:

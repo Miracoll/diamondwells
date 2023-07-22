@@ -20,8 +20,8 @@ class Role(models.Model):
     
 class Trader(models.Model):
     name = models.CharField(max_length=100)
-    win = models.IntegerField(default=0)
-    loss = models.IntegerField(default=0)
+    win = models.IntegerField(default=0, blank=True, null=True)
+    loss = models.IntegerField(default=0, blank=True, null=True)
     win_rate = models.IntegerField(default=0)
     profit = models.IntegerField(default=0)
     image = models.ImageField(upload_to='trade', default='passport.jpg', blank=True, null=True)

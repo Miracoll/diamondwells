@@ -561,9 +561,9 @@ def loginuser(request):
         password = request.POST.get('password')
 
         try:
-            user = User.objects.get(username=username)
+            user = User.objects.get(email=username)
         except:
-            messages.warning(request,'username does not exist')
+            messages.warning(request,'email does not exist')
             return redirect('login')
 
         user = authenticate(request, username=username, password=password)
@@ -578,7 +578,7 @@ def loginuser(request):
                 else:
                     return redirect('home')
         else:
-            messages.warning(request,'Incorrect username or password')
+            messages.warning(request,'Incorrect email or password')
             return redirect('login')
     return render(request, 'account/signin.html')
 
@@ -634,8 +634,8 @@ def signup(request):
         return redirect('login')
 
         # Activate email
-        # activateEmail(request, user, email)
-        # return redirect('login')
+        activateEmail(request, user, email)
+        return redirect('login')
     content = {}
     return render(request, 'account/signup.html')
 

@@ -157,13 +157,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 #Email validation
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.chasetradesbroker.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_SSL = True
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'noreply@chasetradesbroker.com'
-EMAIL_FROM = 'noreply@chasetradesbroker.com'
-EMAIL_HOST_PASSWORD = 'qwerty2468'
-DEFAULT_FROM_EMAIL = 'CHASETRADE<noreply@chasetradesbroker.com>'
+EMAIL_HOST_USER = 'diamondwells104@gmail.com'
+EMAIL_FROM = 'diamondwells104@gmail.com'
+EMAIL_HOST_PASSWORD = 'zrmghldedzvbntvn'
+DEFAULT_FROM_EMAIL = 'CHASETRADE<diamondwells104@gmail.com>'
 
 PASSWORD_RESET_TIMEOUT = 14400      # 4 hrs
 

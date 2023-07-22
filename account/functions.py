@@ -35,3 +35,20 @@ def telegram(message):
     chat_id = "5471999533"
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={chat_id}&text={message}"
     requests.get(url)
+    
+def checkUserName(request,username):
+    if ' ' in username:
+        messages.error(request, 'Remove space from the username')
+        return redirect('register')
+
+    for i in username:
+        print(ord(i))
+        if ord(i) >= 48 and ord(i) <= 57:
+            print('username correct')
+        elif ord(i) >= 97 and ord(i) <= 122:
+            print('username correct')
+        else:
+            messages.error(request, 'Invalid username')
+            return redirect('register')
+    
+    return 'ok'
