@@ -163,10 +163,11 @@ EMAIL_PORT = 465
 EMAIL_HOST_USER = 'diamondwells104@gmail.com'
 EMAIL_FROM = 'diamondwells104@gmail.com'
 EMAIL_HOST_PASSWORD = 'zrmghldedzvbntvn'
-DEFAULT_FROM_EMAIL = 'CHASETRADE<diamondwells104@gmail.com>'
+DEFAULT_FROM_EMAIL = 'DIAMONDWELLS<diamondwells104@gmail.com>'
 
 PASSWORD_RESET_TIMEOUT = 14400      # 4 hrs
 
-MESSAGE_TAGS = {
-    messages.ERROR:'danger',
-}
+AUTHENTICATION_BACKENDS = [
+    'account.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]

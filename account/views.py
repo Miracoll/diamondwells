@@ -12,6 +12,7 @@ from django.utils.http import urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.mail import send_mail
+from django.utils import timezone
 from .decorators import allowed_users
 from .forms import UpdatePhotoForm, IdentityForm, AddressForm, ProveForm
 from .models import Currency, User, TradingPlan, Deposite, MiningPlan, CopiedTrade, ContractPaymentMethod, TakeTrade, Withdrawal
@@ -31,7 +32,7 @@ def home(request):
     copied_trade = len(CopiedTrade.objects.filter(user=request.user))
     allTrade = TakeTrade.objects.filter(user=request.user)
     for i in allTrade.values():
-        current_datetime = datetime.now()
+        current_datetime = timezone.now()
         date_datetime = i.get('expire_time')
 
         date_datetime = date_datetime.replace(tzinfo=pytz.utc)
@@ -248,7 +249,7 @@ def traders(request):
 def copyTrade(request, ref):
     trader = Trader.objects.get(ref=ref)
     if CopiedTrade.objects.filter(trade=trader,user=request.user).exists():
-        messages.warning(request, 'Trade already copied')
+        messages.error(request, 'Trade already copied')
         return redirect('traders')
     CopiedTrade.objects.create(trade=trader,user=request.user,pending=True)
     getUser = CopiedTrade.objects.get(trade=trader,user=request.user).user.username
@@ -264,7 +265,7 @@ def cancelTrade(request, ref):
     getUser = CopiedTrade.objects.get(ref=ref)
     # getTrade = Trader.objects.get(id=getUser.trade.id)
     # if TakeTrade.objects.filter(trader=getTrade,user=User.objects.get(username=getUser.user.username)).exists():
-    #     messages.warning(request, 'This trader is active')
+    #     messages.error(request, 'This trader is active')
     #     return redirect('traders')
     trade.delete()
     # Send message to admin
@@ -304,7 +305,7 @@ def updateEmail(request):
         email1 = request.POST.get('email1')
         email2 = request.POST.get('email2')
         if token != request.user.token:
-            messages.warning(request, 'incorrect token')
+            messages.error(request, 'incorrect token')
             return redirect('updateemail')
         else:
             if email1 == email2:
@@ -312,7 +313,7 @@ def updateEmail(request):
                 messages.success(request, 'Done')
                 return redirect('updateemail')
             else:
-                messages.warning(request, 'both email did not match')
+                messages.error(request, 'both email did not match')
                 return redirect('updateemail')
     context = {}
     return render(request, 'account/updateemail.html')
@@ -354,10 +355,10 @@ def updatePassword(request):
                 #     login(request,user)
                 #     return redirect('home')
             else:
-                messages.warning(request, 'Password did not match')
+                messages.error(request, 'Password did not match')
                 return redirect('updatepassword')
         else:
-            messages.warning(request,'incorrect password')
+            messages.error(request,'incorrect password')
             return redirect('updatepassword')
     context = {}
     return render(request, 'account/updatepassword.html')
@@ -450,7 +451,7 @@ def bank(request):
             messages.success(request, 'Done')
             return redirect('bank')
         else:
-            messages.warning(request, 'Invalid withdrawal code')
+            messages.error(request, 'Invalid withdrawal code')
             return redirect('withdrawals')
     context = {}
     return render(request, 'account/bank.html')
@@ -500,7 +501,7 @@ def cryptoWithdrawal(request):
             messages.success(request, 'Done')
             return redirect('withdrawals')
         else:
-            messages.warning(request, 'Invalid withdrawal code')
+            messages.error(request, 'Invalid withdrawal code')
             return redirect('crypto-withdrawal')
     context = {'currency':currency}
     return render(request, 'account/cryptowithdrawal.html',context)
@@ -524,7 +525,7 @@ def cashApp(request):
             messages.success(request, 'Done')
             return redirect('withdrawals')
         else:
-            messages.warning(request, 'Invalid withdrawal code')
+            messages.error(request, 'Invalid withdrawal code')
             return redirect('cashapp')
     context = {}
     return render(request, 'account/cashapp.html')
@@ -560,12 +561,6 @@ def loginuser(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        try:
-            user = User.objects.get(email=username)
-        except:
-            messages.warning(request,'email does not exist')
-            return redirect('login')
-
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
@@ -578,7 +573,7 @@ def loginuser(request):
                 else:
                     return redirect('home')
         else:
-            messages.warning(request,'Incorrect email or password')
+            messages.error(request,'Incorrect email or password')
             return redirect('login')
     return render(request, 'account/signin.html')
 
@@ -599,15 +594,15 @@ def signup(request):
         currency = request.POST.get('currency')
 
         if ' ' in username:
-            messages.warning(request, 'Invalid email address')
+            messages.error(request, 'Invalid email address')
             return redirect('login')
 
         if User.objects.filter(email=email).exists() or User.objects.filter(username=username).exists():
-            messages.warning(request, 'Email or username already used')
+            messages.error(request, 'Email or username already used')
             return redirect('login')
 
         if pass1 != pass2:
-            messages.warning(request, 'Password did not match')
+            messages.error(request, 'Password did not match')
             return redirect('login')
 
         user = User.objects.create_user(username,email,pass1)
@@ -653,7 +648,7 @@ def activate(request, uidb64, token):
         messages.success(request, 'Verification was successful')
         return redirect('login')
     else:
-        messages.warning(request, 'Activation link is invalid')
+        messages.error(request, 'Activation link is invalid')
     return redirect('home')
 
 @login_required(login_url='login')

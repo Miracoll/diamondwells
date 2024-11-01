@@ -70,48 +70,45 @@ class Currency(models.Model):
 
 class Deposite(models.Model):
     amount = models.IntegerField(blank=True, null=True)
-    payment_method = models.ForeignKey(Currency, on_delete=models.CASCADE, blank=True, null=True)
-    plan = models.CharField(max_length=100,blank=True, null=True)
-    status = models.IntegerField(default=1,blank=True, null=True) # 1 --> pending, 2 --> success, 3 --> expire
+    payment_method = models.ForeignKey('Currency', on_delete=models.CASCADE, blank=True, null=True)
+    plan = models.CharField(max_length=100, blank=True, null=True)
+    status = models.IntegerField(default=1, blank=True, null=True)  # 1 --> pending, 2 --> success, 3 --> expire
     image = models.ImageField(upload_to='prove', blank=True, null=True, default='noimage.jpg')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    expire_time = models.DateTimeField(default=expire_time,blank=True, null=True)
-    date_created = models.DateTimeField(default=date_before,blank=True, null=True)
+    expire_time = models.DateTimeField(blank=True, null=True)
+    date_created = models.DateTimeField(default=timezone.now, blank=True, null=True)
     ref = models.UUIDField(default=uuid.uuid4, editable=False)
 
     def __str__(self):
         return self.user.username
-    
+
     def save(self, *args, **kwargs):
-        date_before = datetime.now()
-        expire_time = date_before + timedelta(seconds=3600)
-        super(Deposite, self).save(*args, **kwargs)
-        
+        if not self.date_created:
+            self.date_created = timezone.now()
+        self.expire_time = self.date_created + timedelta(seconds=3600)
+        super().save(*args, **kwargs)
+
     class Meta:
         ordering = ['-date_created']
+
         
 class Withdrawal(models.Model):
     amount = models.IntegerField()
     payment_method = models.CharField(max_length=100, blank=True, null=True)
-    status = models.IntegerField(default=1) # 1 --> pending, 2 --> success, 3 --> expire
+    status = models.IntegerField(default=1)  # 1 --> pending, 2 --> success, 3 --> expire
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     mode = models.CharField(max_length=30)
-    bank_name = models.CharField(max_length=30,blank=True,null=True)
-    acct_name = models.CharField(max_length=30,blank=True,null=True)
-    wallet_address = models.CharField(max_length=100,blank=True,null=True)
-    cashapp_tag = models.CharField(max_length=100,blank=True,null=True)
-    paypal_email = models.CharField(max_length=100,blank=True,null=True)
-    date_created = models.DateTimeField()
+    bank_name = models.CharField(max_length=30, blank=True, null=True)
+    acct_name = models.CharField(max_length=30, blank=True, null=True)
+    wallet_address = models.CharField(max_length=100, blank=True, null=True)
+    cashapp_tag = models.CharField(max_length=100, blank=True, null=True)
+    paypal_email = models.CharField(max_length=100, blank=True, null=True)
+    date_created = models.DateTimeField(default=timezone.now)
     ref = models.UUIDField(default=uuid.uuid4, editable=False)
 
     def __str__(self):
         return self.user.username
-    
-    def save(self, *args, **kwargs):
-        date_before = datetime.now()
-        self.date_created = date_before
-        super(Withdrawal, self).save(*args, **kwargs)
-        
+
     class Meta:
         ordering = ['-date_created']
     
